@@ -1,0 +1,16 @@
+extends layout 
+
+block content
+  div#detailpage
+    div#information
+      img#produce_img_productpage(src=product.image_url)
+      h1= title
+      p= product.description
+      p These #{title.toLowerCase()}s originate from 
+        a(href=product.origin.url) #{product.origin.name}
+      p One #{title.toLowerCase()} costs $#{product.price}
+      p Currently we have #{product.num_in_stock} #{title.toLowerCase()}s in stock
+    button(id="orderbutton") Buy now
+    br
+    a#delete(href=product.url+'/delete') Delete product
+    a#update(href=product.url+'/update') Update product

@@ -1,0 +1,19 @@
+extends layout 
+
+block content
+  div#createform
+    h1 #{title}: #{product.name.toLowerCase()}
+    p Origin: 
+      a(href=product.origin.url) #{product.origin.name}
+    p Do you really want to delete this product?
+    form(method='POST' action='')
+      div
+        input#productid(type='hidden' name='productid' required='true' value=product._id)
+        label(for='password') Password: 
+        input(type='password' name='password' required='true' placeholder='Password')
+        button.submitbutton(type='submit') Delete
+
+    if errors
+      ul
+        for error in errors
+          li!= error.msg

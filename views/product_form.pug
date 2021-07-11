@@ -1,0 +1,41 @@
+extends layout 
+
+block content 
+  div#createform
+    h1= title 
+    form(method='POST' action='')
+      div#formname 
+        label(for='name') Name: 
+        input(type='text' placeholder='Name of the product' name='name' required='true' value=(undefined===product ? '' : product.name))
+      div#formdescription
+        label(for='description') Description: 
+        textarea(type='text' placeholder='Description of the product' name='description' required='true') #{undefined===product ? '' : product.description}
+      div#formorigin
+        label(for='origin') Origin: 
+        if (product == undefined) 
+          select#origin(type='select' placeholder='Select origin' name='origin' required='true')
+            each origin in origins
+              option(value=origin._id) #{origin.name}
+        else 
+          select#origin(type='select' placeholder='Select origin' name='origin' required='true' value=product.origin._id)
+            each origin in origins
+              option(value=origin._id) #{origin.name}
+      div#formprice
+        label(for='price') Price: 
+        input(type='number' placeholder='Price of the product' name='price' required='true' value=(undefined===product ? '' : product.price))
+      div#formstock
+        label(for='num_in_stock') Amount in stock: 
+        input(type='number' placeholder='Amount' name='num_in_stock' required='true' value=(undefined===product ? '' : product.num_in_stock))
+      div#formimageurl
+        label(for='image_url') Image URL: 
+        input(type='url' placeholder='URL to the image' name='image_url' required='true' value=(undefined===product ? '' : product.image_url))
+      div#formpassword
+        label(for='password') Password: 
+        input(type='password' placeholder='Password' name='password' required='true')
+      div#formsubmit
+        input(type='submit' value='Submit')
+
+    if errors
+      ul
+        for error in errors
+          li!= error.msg

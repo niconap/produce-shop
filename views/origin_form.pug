@@ -1,0 +1,22 @@
+extends layout 
+
+block content 
+  div#createform
+    h1= title 
+    form(method='POST' action='')
+      div#formname 
+        label(for='name') Name: 
+        input(type='text' placeholder='Name of the origin' name='name' required='true' value=(undefined===origin ? '' : origin.name))
+      div#formdescription
+        label(for='description') Description: 
+        textarea(type='text' placeholder='Description of the origin' name='description' required='true') #{undefined===origin ? '' : origin.description}
+      div#formpassword
+        label(for='password') Password: 
+        input(type='password' placeholder='Password' name='password' required='true')
+      div#formsubmit
+        input(type='submit' value='Submit')
+    
+    if errors
+      ul
+        for error in errors
+          li!= error.msg

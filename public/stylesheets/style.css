@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap');
+
+* {
+  margin: auto;
+  outline: none;
+}
+
+body {
+  font-family: Jost, Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+nav {
+  background-color: rgb(28, 209, 28);
+  color: white;
+  display: grid;
+  grid-template-areas: 'title navigation';
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+nav h1 {
+  grid-area: title;
+  position: relative;
+  left: 0px;
+}
+
+nav a {
+  color: white;
+  text-align: right;
+  grid-area: navigation;
+}
+
+#produce_img {
+  max-height: 10em;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+}
+
+nav ul {
+  width: 100%;
+  text-align: right;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 1em;
+}
+
+#products li {
+  display: inline-block;
+  width: calc(100% / 3.5);
+  margin: 2em 1em;
+  background-color: white;
+  border-radius: 20px;
+  padding: 0.5em;
+  text-align: center;
+}
+
+#shop {
+  display: grid;
+  grid-template-areas: 'origins products products';
+  align-items: start;
+}
+
+#products {
+  grid-area: products;
+  text-align: center;
+  height: 100%;
+}
+
+#products h3 {
+  text-align: left;
+}
+
+#origins {
+  grid-area: origins;
+  height: 100%;
+}
+
+#products, #origins {
+  background-color: rgb(245, 245, 245);
+  padding: 2em;
+  margin: 1em;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgb(197, 197, 197);
+}
+
+#slogan {
+  text-align: center;
+  margin: 2em;
+}
+
+#detailpage {
+  text-align: center;
+}
+
+#detailpage #information {
+  background-color: rgb(245, 245, 245);
+  padding: 2em;
+  margin: 2em 6em;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgb(197, 197, 197);
+}
+
+#detailpage #produce_img_productpage {
+  max-height: 30em
+}
+
+#detailpage button, #createform #formsubmit input {
+  border: none;
+  background-color:rgb(28, 209, 28);
+  color: white;
+  padding: 1em;
+  font-size: 15px;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#detailpage button:hover, #createform #formsubmit input:hover {
+  background-color: rgb(23, 187, 23);
+  box-shadow: 0px 0px 5px rgb(197, 197, 197);
+  cursor: pointer;
+}
+
+#delete, #update {
+  color: rgb(196, 196, 196);
+  border: 1px solid rgb(196, 196, 196);
+  padding: 0.5em;
+  border-radius: 10px;
+  margin: 0.5em;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#delete:hover, #update:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(196, 196, 196);
+  box-shadow: 0px 0px 5px rgb(197, 197, 197);
+  cursor: pointer;
+}
+
+#topinfo {
+  margin: 2em 0em;
+}
+
+#websitetitle {
+  width: 100%;
+}
+
+#createform {
+  text-align: center;
+}
+
+#createform form {
+  background-color: rgb(245, 245, 245);
+  padding: 2em;
+  margin: 2em 6em;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgb(197, 197, 197);
+}
+
+#formname, #formpassword, #formorigin, #formprice, #formstock, #formimageurl {
+  padding: 1em;
+  height: 1em;
+}
+
+#formdescription textarea {
+  font-family: Jost, Helvetica, Arial, sans-serif;
+  height: 3em;
+  min-height: 3em;
+  max-width: 10em;
+  min-width: 10em;
+}
+
+#formname input, #formpassword input, #formdescription textarea, #formorigin input, #formprice input, #formstock input, #formimageurl input {
+  border-radius: 20px;
+  border: 1px solid rgb(196, 196, 196);
+  padding: 5px;
+}
+
+#formname input:focus, #formpassword input:focus, #formdescription textarea:focus {
+  border: 1px solid rgb(28, 209, 28);
+}

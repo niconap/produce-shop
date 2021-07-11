@@ -1,0 +1,23 @@
+extends layout 
+
+block content
+  div#detailpage
+    div#topinfo
+      h1= title
+      p= origin.description
+    if (products != '')
+      h3 All produce from this country:
+      div#products
+        ul
+          each val in products 
+            li 
+              img#produce_img(src=val.image_url)
+              p= val.name
+              p $#{val.price}
+              a(href=val.url) See details
+      br
+    else 
+      h3 Currently we have no produce from #{title}.
+      br
+      a#delete(href=origin.url+'/delete') Delete origin
+    a#update(href=origin.url+'/update') Update origin

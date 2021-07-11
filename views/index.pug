@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h2#slogan Welcome to our produce shop! Here you can find the best produce from all over the world!
+  div#shop
+    div#origins
+      h3 All countries of origin:
+      ul
+        each val in origins
+            li
+              a(href=val.url) #{val.name}    
+    div#products
+      h3 All of our products:
+      ul 
+        each val in products
+          li
+            img(src=val.image_url id="produce_img")
+            p= val.name
+            p $#{val.price}
+            a(href=val.url) See details
