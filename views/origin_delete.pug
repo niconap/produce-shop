@@ -8,12 +8,12 @@ block content
         a(href=origin.url) #{origin.name}
       p Do you really want to delete this origin?
       form(method='POST' action='')
-        div
+        div#formpassword
           label(for='password') Password: 
           input(type='password' placeholder='Password' name='password' required='true')
-        div
+        div#formsubmit
           input#originid(type='hidden' name='originid' required='true' value=origin._id)
-          button.submitbutton(type='submit') Delete
+          input(type='submit' value='Delete')
     else 
       h3 Delete these products before deleting the origin: 
       div#products

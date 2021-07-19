@@ -51,7 +51,7 @@ exports.product_create_post = [
   body('num_in_stock', 'Number in stock must not be empty.').trim().isLength({ min: 1 }).escape(),
   body('image_url', 'Image URL must not be empty.').trim().isLength({ min: 1 }),
   body('origin', 'Origin must not be emtpy.').trim().isLength({ min: 1 }).escape(),
-  body('password', 'Password is incorrect.').trim().equals('somepassword'),
+  body('password', 'Password is incorrect.').trim().equals(process.env.PASSWORD),
 
   (req, res, next) => {
     const errors = validationResult(req);
@@ -107,7 +107,7 @@ exports.product_delete_post = [
     next();
   },
 
-  body('password', 'Password is incorrect.').trim().equals('somepassword'),
+  body('password', 'Password is incorrect.').trim().equals(process.env.PASSWORD),
 
   (req, res, next) => {
     const errors = validationResult(req);
@@ -167,7 +167,7 @@ exports.product_update_post = [
   body('num_in_stock', 'Number in stock must not be empty.').trim().isLength({ min: 1 }).escape(),
   body('image_url', 'Image URL must not be empty.').trim().isLength({ min: 1 }),
   body('origin', 'Origin must not be emtpy.').trim().isLength({ min: 1 }).escape(),
-  body('password', 'Password is incorrect.').trim().equals('somepassword'),
+  body('password', 'Password is incorrect.').trim().equals(process.env.PASSWORD),
 
   (req, res, next) => {
     const errors = validationResult(req);
