@@ -17,7 +17,7 @@ exports.origin_create_post = [
   body('name', 'Name must not be longer than 50 characters.').trim().isLength( { max: 50 }).escape(),
   body('description', 'Description must be longer than 3 characters.').trim().isLength({ min: 3 }).escape(),
   body('description', 'Description must not be longer than 200 characters.').trim().isLength({ max: 200 }).escape(),
-  body('password', 'Password is incorrect.').trim().equals('somepassword'),
+  body('password', 'Password is incorrect.').trim().equals(process.env.PASSWORD),
 
   (req, res, next) => {
     const errors = validationResult(req);
@@ -64,7 +64,7 @@ exports.origin_delete_post = [
     next();
   },
 
-  body('password', 'Password is incorrect.').trim().equals('somepassword'),
+  body('password', 'Password is incorrect.').trim().equals(process.env.PASSWORD),
 
   (req, res, next) => {
     const errors = validationResult(req);
